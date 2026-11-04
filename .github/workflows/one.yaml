@@ -3,4 +3,4 @@ on:
     push:
 jobs:
     calling_reusable_workflow_jab:
-        uses: ./.github/workflows/two.yaml
+        uses: ./.github/workflows/two.yml
