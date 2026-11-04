@@ -1,9 +1,21 @@
 name: this is reusable workflow from two.yaml
 on:
     workflow_call:
+        inputs:
+            first_name:
+                description: first name -
+                required: true
+                type: string
+            last_name:
+                description: last name -
+                required: true
+                type: string
+
 jobs:
     my_job:
         runs-on: ubuntu-latest
         steps:
             - name: "this is from workflow call"
               run: echo "${{github.event_name}} is getting executing"
+            - name: "full name is "
+              run: echo "${{inputs.first_name}} ${{inputs.last_name}}"

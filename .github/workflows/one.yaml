@@ -30,3 +30,6 @@ jobs:
         needs:
             - second_job
         uses: ./.github/workflows/two.yml
+        with:
+            first_name: ${{inputs.name}}
+            last_name: ${{inputs.name}}
