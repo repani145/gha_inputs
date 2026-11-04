@@ -9,10 +9,13 @@ jobs:
               run: echo "hi i am from frst job step"
     second_job:
         runs-on: ubuntu-latest
-        needs: first_job
+        needs: 
+            - first_job
         steps:
             - name: from second job
               run: echo "hi i am from second job step"
 
     calling_reusable_workflow_job:
+        needs:
+            - second_job
         uses: ./.github/workflows/two.yml

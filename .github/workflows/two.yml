@@ -1,42 +1,9 @@
-name: Reusable Deployment Workflow
-
+name: this is reusable workflow from two.yaml
 on:
-  workflow_call:
-    inputs:
-      application_name:
-        required: true
-        type: string
-
-      run_security_scan:
-        required: true
-        type: boolean
-
-      replicas:
-        required: true
-        type: number
-
+    workflow_call:
 jobs:
-  deploy-application-job:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Display Deployment Parameters
-        run: |
-          echo "Application: ${{ inputs.application_name }}"
-          echo "Run Security Scan: ${{ inputs.run_security_scan }}"
-          echo "Replicas: ${{ inputs.replicas }}"
-
-      - name: Security Validation
-        if: ${{ inputs.run_security_scan }}
-        run: |
-          echo "Running security scan..."
-          echo "No critical vulnerabilities found."
-
-      - name: Deploy Application
-        run: |
-          echo "Deploying ${{ inputs.application_name }}"
-          echo "Desired Replicas: ${{ inputs.replicas }}"
-
-      - name: Deployment Complete
-        run: |
-          echo "Deployment completed successfully."
+    my_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "this is from workflow call"
+              run: echo "${{github.event_name}} is getting executing"
