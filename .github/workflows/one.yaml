@@ -1,0 +1,6 @@
+name: demo to call reusable workflow
+on:
+    push:
+jobs:
+    calling_reusable_workflow_jab:
+        uses: ./.github/workflows/two.yaml
